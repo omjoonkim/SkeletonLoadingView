@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context="com.omjoonkim.sample.MainActivity">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="200dp">
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_marginLeft="16dp"
+			android:layout_marginTop="8dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="40dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="106dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="16dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+
+		android:layout_width="36dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="32dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="243dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="58dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="274dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="74dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="80dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="90dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<View
+			android:layout_alignParentBottom="true"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#f2f2f2"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="56dp">
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="16dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="40dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="190dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="14dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:layout_width="100dp"
+			android:layout_height="12dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="30dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:layout_alignParentBottom="true"
+			android:background="#f2f2f2"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="64dp">
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:id="@+id/skeletonView1"
+			android:layout_width="42dp"
+			android:layout_height="42dp"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="16dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="42dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:id="@+id/skeletonView2"
+			android:layout_width="210dp"
+			android:layout_height="8dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="18dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+			android:id="@+id/skeletonView3"
+			android:layout_width="100dp"
+			android:layout_height="12dp"
+			android:layout_marginLeft="70dp"
+			android:layout_marginTop="34dp"
+			app:baseColor="#fbfbfb"
+			app:deepColor="#f2f2f2"
+			app:duration="1500"
+			app:interval="1000"
+			app:progressLength="120dp"
+			app:radius="5dp"
+			/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:layout_alignParentBottom="true"
+			android:background="#f2f2f2"/>
+	</RelativeLayout>
+	<com.omjoonkim.skeletonloadingview.SkeletonLoadingView
+		android:layout_width="match_parent"
+		android:layout_height="30dp"
+		app:baseColor="#fbfbfb"
+		app:deepColor="#f2f2f2"
+		app:duration="1500"
+		app:interval="1000"
+		app:progressLength="120dp"
+		app:radius="5dp"
+		/>
+</LinearLayout>

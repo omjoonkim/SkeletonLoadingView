@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 25
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'omjoonkim'
+    groupId = 'com.omjoonkim.library'
+    artifactId = 'sekeleton-loading-view'
+    publishVersion = '1.0.2'
+    desc = 'SkeletonLoadingView with Kotlin'
+    website = 'https://github.com/omjoonkim/SkeletonLoadingView'
+    issueTracker = "https://github.com/omjoonkim/SkeletonLoadingView/issues"
+    repository = "https://github.com/omjoonkim/SkeletonLoadingView.git"
+}
