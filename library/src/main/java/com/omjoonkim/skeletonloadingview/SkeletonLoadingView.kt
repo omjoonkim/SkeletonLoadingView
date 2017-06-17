@@ -15,8 +15,8 @@ class SkeletonLoadingView @JvmOverloads constructor(
     val BASE_COLOR_DEFAULT = Color.parseColor("#fbfbfb")
     val DEEP_COLOR_DEFAULT = Color.parseColor("#f2f2f2")
     val RADIUS_DEFAULT = 5.toDp(context)
-    val PROGRESS_LENGTH_DEFAULT = 80.toDp(context)
-    val DURATION_DEFAULT = 300L
+    val PROGRESS_LENGTH_DEFAULT = 120.toDp(context)
+    val DURATION_DEFAULT = 1500L
     val INTERVAL_DEFAULT = 0L
 
     val animator: ValueAnimator =
