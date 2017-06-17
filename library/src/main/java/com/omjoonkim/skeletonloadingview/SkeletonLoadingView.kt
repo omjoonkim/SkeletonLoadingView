@@ -51,9 +51,6 @@ class SkeletonLoadingView @JvmOverloads constructor(
 
     init {
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB)
-            setLayerType(View.LAYER_TYPE_SOFTWARE, null)
-
         with(context.obtainStyledAttributes(attrs, R.styleable.SkeletonLoadingView)) {
             if (hasValue(R.styleable.SkeletonLoadingView_radius))
                 radius = getDimensionPixelOffset(R.styleable.SkeletonLoadingView_radius, RADIUS_DEFAULT.toInt()).toFloat()
