@@ -1,7 +1,7 @@
 # SkeletonLoadingView
 [![bintray](https://img.shields.io/bintray/v/omjoonkim/maven/skeleton-loading-view.svg)](https://bintray.com/omjoonkim/maven/skeleton-loading-view) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--SkeletonLoadingView-brightgreen.svg?style=true)](https://android-arsenal.com/details/1/5912)
-SkeletonLoadingView with Kotlin 💀💀
 
+SkeletonLoadingView with Kotlin 💀💀
 
 
 ![sample](image/sample.gif)
