@@ -26,7 +26,7 @@ publish {
     userOrg = 'omjoonkim'
     groupId = 'com.omjoonkim.library'
     artifactId = 'skeleton-loading-view'
-    publishVersion = '0.1.2'
+    publishVersion = '0.1.3'
     desc = 'SkeletonLoadingView with Kotlin'
     website = 'https://github.com/omjoonkim/SkeletonLoadingView'
     issueTracker = "https://github.com/omjoonkim/SkeletonLoadingView/issues"

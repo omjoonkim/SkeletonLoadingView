@@ -6,6 +6,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.LinearInterpolator
 
 class SkeletonLoadingView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -211,6 +212,7 @@ class SkeletonLoadingView @JvmOverloads constructor(
     fun start() = with(animator) {
         duration = durationOfPass
         startDelay = interval
+        interpolator = LinearInterpolator()
         repeatCount = ObjectAnimator.INFINITE
         start()
     }
