@@ -4,12 +4,11 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 
 class SkeletonLoadingView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
     val BASE_COLOR_DEFAULT = Color.parseColor("#fbfbfb")
@@ -20,12 +19,12 @@ class SkeletonLoadingView @JvmOverloads constructor(
     val INTERVAL_DEFAULT = 0L
 
     val animator: ValueAnimator =
-            ValueAnimator.ofFloat(0f, 1f).apply {
-                addUpdateListener {
-                    frame = it.animatedFraction
-                    postInvalidate()
-                }
+        ValueAnimator.ofFloat(0f, 100f).apply {
+            addUpdateListener {
+                frame = it.animatedFraction % 1
+                postInvalidate()
             }
+        }
 
     var frame = 0f
     var radius = RADIUS_DEFAULT
@@ -37,8 +36,8 @@ class SkeletonLoadingView @JvmOverloads constructor(
     var autoStart = true
 
     var basePaint: Paint
-    var deepPaintLeft: Paint
-    var deepPaintRight: Paint
+    var deepPaintStart: Paint
+    var deepPaintEnd: Paint
 
     var rect = RectF()
     var path = Path()
@@ -76,16 +75,19 @@ class SkeletonLoadingView @JvmOverloads constructor(
             isAntiAlias = true
             color = baseColor
         }
-        deepPaintLeft = Paint().apply {
+
+        deepPaintStart = Paint().apply {
             style = Paint.Style.FILL
             isAntiAlias = true
             shader = LinearGradient(0f, 0f, progressLength / 2, 0f, baseColor, deepColor, Shader.TileMode.CLAMP)
         }
-        deepPaintRight = Paint().apply {
+
+        deepPaintEnd = Paint().apply {
             style = Paint.Style.FILL
             isAntiAlias = true
             shader = LinearGradient(0f, 0f, progressLength / 2, 0f, deepColor, baseColor, Shader.TileMode.CLAMP)
         }
+
         if (autoStart)
             start()
     }
@@ -93,18 +95,111 @@ class SkeletonLoadingView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         val width = width.toFloat()
         val height = height.toFloat()
-        canvas?.clipPath(path.apply { reset(); addRoundRect(rect.apply { set(0f, 0f, width, height) }, radius, radius, Path.Direction.CW) })
-        super.onDraw(canvas)
-        canvas?.let { canvas ->
-            canvas.drawRoundRect(rect.apply { set(0f, 0f, width, height) }, radius, radius, basePaint)
-
-            canvas.drawRoundRect(rect.apply { set(screenWidth * frame - x, 0f, screenWidth * frame - x + progressLength / 2, height) }, 0f, 0f, deepPaintLeft.apply { shader.setLocalMatrix(m.apply { setTranslate(screenWidth * frame - x, 0f) }) })
-            canvas.drawRoundRect(rect.apply { set(screenWidth * frame - x + progressLength / 2, 0f, screenWidth * frame - x + progressLength, height) }, 0f, 0f, deepPaintRight.apply { shader.setLocalMatrix(m.apply { setTranslate(screenWidth * frame - x + progressLength / 2, 0f) }) })
-
-            if (screenWidth - (screenWidth * frame + progressLength) < 0) {
-                canvas.drawRoundRect(rect.apply { set(screenWidth * frame - x - screenWidth, 0f, screenWidth * frame - x + progressLength / 2 - screenWidth, height) }, 0f, 0f, deepPaintLeft.apply { shader.setLocalMatrix(m.apply { setTranslate(screenWidth * frame - x - screenWidth, 0f) }) })
-                canvas.drawRoundRect(rect.apply { set(screenWidth * frame - x + progressLength / 2 - screenWidth, 0f, screenWidth * frame - x + progressLength - screenWidth, height) }, 0f, 0f, deepPaintRight.apply { shader.setLocalMatrix(m.apply { setTranslate(screenWidth * frame - x + progressLength / 2 - screenWidth, 0f) }) })
+        canvas?.clipPath(
+            path.apply {
+                reset()
+                addRoundRect(
+                    rect.apply {
+                        set(0f, 0f, width, height)
+                    },
+                    radius,
+                    
+                    radius,
+                    Path.Direction.CW
+                )
             }
+        )
+
+        canvas ?: return
+
+        canvas.drawRoundRect(
+            rect.apply {
+                set(0f, 0f, width, height)
+            },
+            radius,
+            radius,
+            basePaint
+        )
+
+        canvas.drawRoundRect(
+            rect.apply {
+                set(
+                    screenWidth * frame - x,
+                    0f,
+                    screenWidth * frame - x + progressLength / 2,
+                    height
+                )
+            },
+            0f,
+            0f,
+            deepPaintStart.apply {
+                shader.setLocalMatrix(
+                    m.apply {
+                        setTranslate(screenWidth * frame - x, 0f)
+                    }
+                )
+            }
+        )
+
+        canvas.drawRoundRect(
+            rect.apply {
+                set(
+                    screenWidth * frame - x + progressLength / 2,
+                    0f,
+                    screenWidth * frame - x + progressLength,
+                    height
+                )
+            },
+            0f,
+            0f,
+            deepPaintEnd.apply {
+                shader.setLocalMatrix(
+                    m.apply {
+                        setTranslate(screenWidth * frame - x + progressLength / 2, 0f)
+                    }
+                )
+            }
+        )
+
+        if (screenWidth - (screenWidth * frame + progressLength) < 0) {
+            canvas.drawRoundRect(
+                rect.apply {
+                    set(
+                        screenWidth * frame - x - screenWidth,
+                        0f,
+                        screenWidth * frame - x + progressLength / 2 - screenWidth, height
+                    )
+                },
+                0f,
+                0f,
+                deepPaintStart.apply {
+                    shader.setLocalMatrix(
+                        m.apply {
+                            setTranslate(screenWidth * frame - x - screenWidth, 0f)
+                        }
+                    )
+                }
+            )
+            canvas.drawRoundRect(
+                rect.apply {
+                    set(
+                        screenWidth * frame - x + progressLength / 2 - screenWidth,
+                        0f,
+                        screenWidth * frame - x + progressLength - screenWidth,
+                        height
+                    )
+                },
+                0f,
+                0f,
+                deepPaintEnd.apply {
+                    shader.setLocalMatrix(
+                        m.apply {
+                            setTranslate(screenWidth * frame - x + progressLength / 2 - screenWidth, 0f
+                            )
+                        }
+                    )
+                }
+            )
         }
     }
 
@@ -113,13 +208,15 @@ class SkeletonLoadingView @JvmOverloads constructor(
         stop()
     }
 
-    fun start() =
-            with(animator) {
-                duration = durationOfPass
-                startDelay = interval
-                repeatCount = ObjectAnimator.INFINITE
-                start()
-            }
+    fun start() = with(animator) {
+        duration = durationOfPass
+        startDelay = interval
+        repeatCount = ObjectAnimator.INFINITE
+        start()
+    }
 
-    fun stop() = with(animator) { if (isRunning) cancel() }
+    fun stop() = with(animator) {
+        if (isRunning)
+            cancel()
+    }
 }
