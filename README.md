@@ -1,5 +1,5 @@
 # SkeletonLoadingView
-[![bintray](https://img.shields.io/bintray/v/omjoonkim/maven/skeleton-loading-view.svg)](https://bintray.com/omjoonkim/maven/skeleton-loading-view) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--SkeletonLoadingView-brightgreen.svg?style=true)](https://android-arsenal.com/details/1/5912)
+ [ ![Download](https://api.bintray.com/packages/omjoonkim/maven/skeleton-loading-view/images/download.svg) ](https://bintray.com/omjoonkim/maven/skeleton-loading-view/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--SkeletonLoadingView-brightgreen.svg?style=true)](https://android-arsenal.com/details/1/5912)
 
 SkeletonLoadingView with Kotlin 💀💀
 
@@ -33,7 +33,7 @@ add to your app build.gradle
 
 ```
 dependencies {
-    compile 'com.omjoonkim.library:skeleton-loading-view:0.1.1'
+    compile 'com.omjoonkim.library:skeleton-loading-view:0.1.3'
 }
 ```
 
