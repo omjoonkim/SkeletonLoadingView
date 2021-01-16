@@ -33,7 +33,7 @@ add to your app build.gradle
 
 ```
 dependencies {
-    compile 'com.omjoonkim.library:skeleton-loading-view:0.1.3'
+implementetion  'com.omjoonkim.library:skeleton-loading-view:0.1.3'
 }
 ```
 
